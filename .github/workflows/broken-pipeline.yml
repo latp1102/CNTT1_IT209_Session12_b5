@@ -19,9 +19,11 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v5
 
+      - name: Grant execute permission
+        run: chmod +x gradlew
+
       - name: Run Gradle tests
         run: ./gradlew test
-
   docker-build:
     name: Build and Push Docker Image
     needs: test
